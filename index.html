@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAWS</title>
+    
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+ 
+           <!-- NAVBAR START -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">JAWS <img src="./images/JAWS-01.png" id="jaws" alt=""></a>
+          <form class="d-flex">
+            <button type="button" class="btn btn-dark btn_add" data-bs-toggle="modal" data-bs-target="#Modal">
+             Добавить
+            </button>
+            <input id="search"
+              class="form-control me-2"
+              type="search"
+              placeholder="Поиск студента"
+              aria-label="Search"
+            />
+          </form>
+        </div>
+      </nav>
+      <!-- NAVBAR END -->
+  
+      <!-- ADMIN PANEL START -->
+      <!-- Button trigger modal -->
+      
+<img src="./images/logo.jpg"  id="fon" alt="">
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Добавление студента</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div  id="addModalViev" class="flex-column align-items-center  my-5">
+          <h2 >Новый студент</h2>
+          <input
+            type="text"
+            class="mb-2  form-control inp"
+            placeholder="Имя"
+            id="name"
+          />
+          <input
+            type="text"
+            class="mb-2  form-control inp"
+            placeholder="Фамилие"
+            id="surname"
+          />
+          <input
+            type="text"
+            class="mb-2  form-control inp"
+            placeholder="Номер телефона"
+            id="phone"
+          />
+          <input
+            type="text"
+            class="mb-2  form-control inp"
+            placeholder="Недельный KPI"
+            id="kpi1"
+          />
+          <input
+          type="text"
+          class="mb-2  form-control inp"
+          placeholder="Месячный KPI"
+          id="kpi2"
+        />
+          <button class="btn-dark " id="btn-add" >Добавить студента</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+      
+  
+      <!-- ADMIN PANEL END -->
+
+      <!-- CONTENT START -->
+      <div id="product-list" class="d-flex flex-wrap justify-content-center"></div>
+
+        <!-- CONTENT END -->
+<!-- MODAL START -->
+<!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Редактирование</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input
+          type="text"
+          class="mb-2 w-100 form-control inp"
+          placeholder="Имя"
+          id="edit-name"
+        />
+        <input
+          type="text"
+          class="mb-2 w-100 form-control inp"
+          placeholder="Фамилие"
+          id="edit-surname"
+        />
+        <input
+          type="text"
+          class="mb-2 w-100 form-control inp"
+          placeholder="Номер телефона"
+          id="edit-phone"
+        />
+        <input
+          type="text"
+          class="mb-2 w-100 form-control inp"
+          placeholder="Недельный KPI"
+          id="edit-kpi1"
+        /> 
+        <input
+        type="text"
+        class="mb-2 w-100 form-control inp"
+        placeholder="Месячный KPI"
+        id="edit-kpi2"
+      /> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-dark" id="btn-save-edit">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- MODAL END  -->
+
+<!-- PAGIANTION START -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item prev"><a class="page-link text-white bg-dark" href="#">Предыдущий</a></li>
+    <div class="pagination-list d-flex"></div>
+    <!-- <li class="page-item"><a class="page-link" href="#">1</a></li> -->
+    <li class="page-item next"><a class="page-link text-white bg-dark" href="#">Следующий</a></li>
+  </ul>
+</nav>
+
+<!-- PAGINATION END -->
+
+<footer class="padding-100 pb-0 bg-dark">
+  <div class="space-30"></div>
+  <div class="footer-widgets">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-sm-6 col-12 contacts-center">
+                  <div class="widget widget-hover">
+                  
+                      <img src="assets/img/makers_white.svg" height="32" alt="">
+                      <p class="text-white">All rights reserved <br> © Copyright 2021 Makers <br> <a style="color: white"
+                              href="./politics.html">Политика конфиденциальности</a></p>
+                      
+                  </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 col-12 item-hide">
+                  <div class="widget">
+                      <h6>Продукты</h6>
+                      <ul>
+                          <li>
+                              <a target="_blank" href="https://bootcamp.makers.kg">Bootcamp</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://smm.makers.kg">SMM курс</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://juniorclub.makers.kg">Junior Club</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://studio.makers.kg">Студия разработки</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 col-12 item-hide">
+                  <div class="widget">
+                      <h6>Комьюнити</h6>
+                      <ul>
+                          <li>
+                              <a target="_blank"
+                                  href="https://facebook.com/Makers-Bootcamp-561894737582204/">Facebook</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://www.instagram.com/makerskg">Instagram</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://vk.com/makerskg">Vkontakte</a>
+                          </li>
+                          <li>
+                              <a target="_blank" href="https://t.me/makerskg">Telegram</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 col-12 contacts-center">
+                  <div class="widget">
+<h6>Контакты</h6>
+                      <ul>
+                          <li>
+                              <a href="tel:+996501619690" target="_blank">Телефон : +996 501 619
+                                  690</a>
+                          </li>
+                          <li>
+                              <a href="mailto:makerskg@gmail.com" target="_blank">Почта : makers@gmail.com</a>
+                          </li>
+                          <li>
+                              <a href="https://go.2gis.com/6dwvi" target="_blank">Адрес : Табышалиева
+                                  29, г. Бишкек</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="space-50"></div>
+</footer>
+
+    <script src="./JS/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
